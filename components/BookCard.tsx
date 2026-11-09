@@ -1,4 +1,5 @@
 
+import Image from "next/image";
 import Button from "./Button";
 
 interface BookCardProps {
@@ -7,19 +8,36 @@ interface BookCardProps {
   category: string;
   nomorpanggil: string;
   isAvailable: boolean;
+  image?: string;
 }
 
 export default function BookCard({
   title,
   author,
-  category, 
-  nomorpanggil, 
+  category,
+  nomorpanggil,
   isAvailable,
+  image,
 }: BookCardProps) {
   return (
-    <div className="w-full max-w-md border rounded-lg p-4 shadow-sm hover:shadow-md transition">
+    <div className="w-full max-w-[240px] border rounded-xl p-3 shadow-sm hover:shadow-md transition bg-white flex flex-col">
 
-      {/* Informasi Buku */}
+      <div className="relative w-full h-56 mb-4 bg-gray-50 rounded-md overflow-hidden flex items-center justify-center">
+        {image? (
+          <Image
+            src={image}
+            alt={`Cover buku ${title}`}
+            fill
+            sizes="(max-width: 768px) 100vw, 300px"
+            className="object-contain"
+          />
+        ) : (
+          <p className="text-sm text-gray-400">
+            Cover belum tersedia
+          </p>
+        )}
+      </div>
+
       <h3 className="text-lg font-bold text-gray-900">
         {title}
       </h3>
@@ -32,11 +50,10 @@ export default function BookCard({
         Kategori: {category}
       </p>
 
-      <p className="text-sm text-gray-600">
+      <p className="text-sm text-gray-600 mb-4">
         Nomor DDC: {nomorpanggil}
       </p>
 
-      {/* Status dan Tombol */}
       <div className="flex items-center justify-between">
 
         <span

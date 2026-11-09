@@ -4,6 +4,7 @@
 import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import BookCard from "@/components/BookCard";
+import Image from "next/image";
 
 const catalogData = [
   {
@@ -13,6 +14,7 @@ const catalogData = [
     category: "Sejarah",
     nomorpanggil: "800 PRA",
     isAvailable: true,
+    image: "/images/BUMI MANUSIA.jpg"
   },
   {
     id: 2,
@@ -21,6 +23,7 @@ const catalogData = [
     category: "Sejarah",
     nomorpanggil: "800 PRA", 
     isAvailable: false,
+    image: "/images/ANAK SEMUA BANGSA.jpg"
   },
   {
     id: 3,
@@ -29,19 +32,19 @@ const catalogData = [
     category: "Sejarah",
     nomorpanggil: "800 PRA",
     isAvailable: true,
+    image: "/images/JEJAK LANGKAH.jpg"
   },
 ];
 
 export default function OPAC() {
   return (
     <>
-      <Header activeRoute="Koleksi" />
-
-      <main className="min-h-screen bg-white p-8">
+      <Header activeRoute="OPAC" />
+      <main className="min-h-screen bg-white px-4 py-6 sm:px-6 sm:py-8">
 
         {/* Judul Halaman */}
-        <section className="text-center pt-12">
-          <h1 className="text-3xl font-bold text-gray-900">
+        <section className="text-center pt-6 sm:pt-10">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
             Katalog Koleksi Buku
           </h1>
 
@@ -51,7 +54,7 @@ export default function OPAC() {
         </section>
 
         {/* Search Bar */}
-        <section className="w-full mt-8">
+        <section className="w-full max-w-2xl mx-auto mt-8">
           <SearchBar
             placeholder="Cari judul buku atau nama penulis..."
             onSearch={(query) => {
@@ -61,13 +64,13 @@ export default function OPAC() {
         </section>
 
         {/* Daftar Koleksi Buku */}
-        <section className="max-w-6xl mx-auto mt-16">
+        <section className="w-full max-w-6xl mx-auto mt-12 sm:mt-16">
 
-          <h2 className="text-xl font-bold text-gray-900 mb-6">
-            Daftar Koleksi
-          </h2>
+        <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-6">
+          Daftar Koleksi
+        </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
 
             {catalogData.map((book) => (
               <BookCard
@@ -77,6 +80,7 @@ export default function OPAC() {
                 category={book.category}
                 nomorpanggil={book.nomorpanggil}
                 isAvailable={book.isAvailable}
+                image={book.image}
               />
             ))}
 

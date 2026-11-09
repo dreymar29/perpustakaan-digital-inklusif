@@ -42,7 +42,7 @@ export default function SearchBar({
         {/* Tombol Cari */}
         <button
           type="submit"
-          className="bg-[#001F3F] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors">
+          className="bg-[#23588d] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-[#005A9C] transition-colors">
           🔍︎
         </button>
       </form>

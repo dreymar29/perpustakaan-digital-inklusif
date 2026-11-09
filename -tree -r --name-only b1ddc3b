@@ -1,0 +1,12 @@
+[33mb1ddc3b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Update project Next.js
+ app/about/page.tsx           |  11 [32m++++[m
+ app/aktivitas/page.tsx       |  28 [32m+++++++++[m
+ app/koleksi-digital/page.tsx |  11 [32m++++[m
+ app/login/page.tsx           |  11 [32m++++[m
+ app/opac/page.tsx            |  89 [32m++++++++++++++++++++++++++++[m
+ app/page.tsx                 | 135 [32m++++++++++++++++++++++++[m[31m-------------------[m
+ components/BookCard.tsx      |  59 [32m+++++++++++++++++++[m
+ components/Button.tsx        |  22 [32m+++++++[m
+ components/Header.tsx        |  62 [32m++++++++++++++++++++[m
+ components/SearchBar.tsx     |  51 [32m++++++++++++++++[m
+ 10 files changed, 418 insertions(+), 61 deletions(-)

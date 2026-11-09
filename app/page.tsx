@@ -4,6 +4,7 @@
 import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import BookCard from "@/components/BookCard";
+import Image from "next/image";
 
 const catalogData = [
   {
@@ -13,6 +14,7 @@ const catalogData = [
     category: "Sejarah",
     nomorpanggil: "800 PRA",
     isAvailable: true,
+    image: "/images/BUMI MANUSIA.jpg",
   },
   {
     id: 2,
@@ -21,6 +23,7 @@ const catalogData = [
     category: "Sejarah",
     nomorpanggil: "800 PRA",
     isAvailable: false,
+    image: "/images/ANAK SEMUA BANGSA.jpg",  
   },
 ];
 
@@ -31,11 +34,11 @@ export default function Home() {
     <>
       <Header activeRoute="Home" />
 
-      <main className="min-h-screen bg-white flex flex-col items-center text-center p-8">
+      <main className="min-h-screen bg-white flex flex-col items-center text-center px-4 py-6 sm:px-6 sm:py-8">
 
         {/* Sambutan */}
-        <section className="w-full pt-20">
-          <h1 className="text-3xl font-bold text-gray-900">
+        <section className="w-full pt-10 sm:pt-16 md:pt-20">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
             Selamat Datang, {userName}!
           </h1>
 
@@ -45,7 +48,7 @@ export default function Home() {
         </section>
 
         {/* Search Bar */}
-        <section className="w-full mt-8">
+        <section className="w-full max-w-2xl mx-auto mt-8">
           <SearchBar
             onSearch={(query) => {
               alert("Kamu mencari: " + query);
@@ -54,14 +57,12 @@ export default function Home() {
         </section>
 
         {/* Koleksi Buku */}
-        <section className="w-full max-w-6xl mt-16">
-
+        <section className="w-full max-w-6xl mx-auto mt-12 sm:mt-16">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">
             Eksplor Koleksi Terbaru!
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
             {catalogData.map((book) => (
               <BookCard
                 key={book.id}
@@ -70,6 +71,7 @@ export default function Home() {
                 category={book.category}
                 nomorpanggil={book.nomorpanggil}
                 isAvailable={book.isAvailable}
+                image={book.image}
               />
             ))}
 

@@ -1,7 +1,6 @@
 
 "use client";
 
-import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import BookCard from "@/components/BookCard";
 import Image from "next/image";
@@ -32,7 +31,6 @@ export default function Home() {
 
   return (
     <>
-      <Header activeRoute="Home" />
 
       <main className="min-h-screen bg-white flex flex-col items-center text-center px-4 py-6 sm:px-6 sm:py-8">
 

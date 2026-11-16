@@ -1,7 +1,6 @@
 
 "use client";
 
-import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import BookCard from "@/components/BookCard";
 import Image from "next/image";
@@ -39,7 +38,7 @@ const catalogData = [
 export default function OPAC() {
   return (
     <>
-      <Header activeRoute="OPAC" />
+    
       <main className="min-h-screen bg-white px-4 py-6 sm:px-6 sm:py-8">
 
         {/* Judul Halaman */}

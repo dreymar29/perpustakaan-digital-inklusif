@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useState } from "react"; 
 import SearchBar from "@/components/SearchBar";
 import BookCard from "@/components/BookCard";
 import Image from "next/image";
@@ -36,8 +37,14 @@ const catalogData = [
 ];
 
 export default function OPAC() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredBooks = catalogData.filter((book) =>
+    book.title.toLowerCase().includes(searchQuery) ||
+    book.author.toLowerCase().includes(searchQuery)
+  );
+
   return (
-    <>
     
       <main className="min-h-screen bg-white px-4 py-6 sm:px-6 sm:py-8">
 
@@ -56,8 +63,8 @@ export default function OPAC() {
         <section className="w-full max-w-2xl mx-auto mt-8">
           <SearchBar
             placeholder="Cari judul buku atau nama penulis..."
-            onSearch={(query) => {
-              alert("Kamu mencari: " + query);
+            onSearchChange={(query) => {
+              setSearchQuery(query);
             }}
           />
         </section>
@@ -71,7 +78,8 @@ export default function OPAC() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
 
-            {catalogData.map((book) => (
+           {filteredBooks.length > 0 ? (
+            filteredBooks.map((book) => (
               <BookCard
                 key={book.id}
                 title={book.title}
@@ -81,12 +89,16 @@ export default function OPAC() {
                 isAvailable={book.isAvailable}
                 image={book.image}
               />
-            ))}
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-500 py-10">
+              Buku yang kamu cari tidak ditemukan.
+            </p>
+          )}
 
           </div>
         </section>
 
       </main>
-    </>
   );
 }

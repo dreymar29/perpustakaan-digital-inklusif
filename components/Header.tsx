@@ -27,8 +27,8 @@ export default function Header() {
           About
         </Link>
 
-        <Link href="/opac" className="text-gray-200 hover:text-white">
-          OPAC
+        <Link href="/katalog" className="text-gray-200 hover:text-white">
+          Katalog
         </Link>
 
         <Link href="/koleksi-digital" className="text-gray-200 hover:text-white">
